@@ -1,0 +1,13 @@
+.DS_Store
+.idea/
+.gradle/
+**/build/
+**/local.properties
+**/keystore.properties
+**/release.jks
+cli/target/
+*.apk
+*.aab
+*.exe
+keystore/*.jks
+!keystore/README.md

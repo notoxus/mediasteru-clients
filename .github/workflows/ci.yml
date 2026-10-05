@@ -1,0 +1,36 @@
+name: Clients CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cli:
+    name: Rust CLI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cli
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cli
+      - run: cargo test --locked
+      - run: cargo build --release --locked
+
+  android:
+    name: Android companion
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: companion-android
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: ./gradlew assembleDebug --no-daemon
