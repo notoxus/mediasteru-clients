@@ -1,5 +1,7 @@
 # MediaSteru Clients
 
+![Downloads](https://img.shields.io/github/downloads/notoxus/mediasteru-java-app/total)
+
 This repository contains the Rust CLI/TUI and Android companion. The Electron
 desktop app and headless daemon are maintained in
 [mediasteru-desktop](https://github.com/notoxus/mediasteru-desktop).
